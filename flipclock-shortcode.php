@@ -23,22 +23,38 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
 
 $clock_instance = 1;
 
-function flipclock_shortcode_func( $atts, $content ) {
+function flipclock_shortcode_func( $atts, $initial ) {
 
 	global $clock_instance;
 
 	$atts = shortcode_atts( array(
-		'foo' => 'no foo',
-		'baz' => 'default baz'
+		'duration' => '1000',
+		'minimumDigits' => 5
 	), $atts, 'flipclock_shortcode' );
 
 	$content .= '<div class="clock-'.$clock_instance.'"></div>';
 	
 	$content .= '<script>
 	
-	var clock = $("clock-'.$clock_instance++.'").FlipClock({});
+(function($) {
+		
+var clock = $(".clock-'.$clock_instance.'").FlipClock('.intval(do_shortcode($initial)).', {
+	clockFace: "Counter",
+	minimumDigits: '.$atts['minimumDigits'].'
 	
-	</script>';
+});
+	
+setTimeout(function() {
+	setInterval(function() {
+		clock.increment();
+	}, '.$atts['duration'].');
+});	
+
+}(jQuery));
+		
+</script>';
+	
+	$clock_instance++;
 
 	return $content;
 }
