@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         src: [
           'node_modules/flipclock/src/flipclock/css/flipclock.css'
         ],
-        dest: 'style/flipclock.css',
+        dest: 'css/flipclock.css',
       },
       js: {
         src: [     

@@ -4,7 +4,7 @@ Donate link: http://bradknowlton.com/
 Tags: jquery, flipclock, shortcode
 Requires at least: 4.7.3
 Tested up to: 5.0.1
-Stable tag: 4.7.4
+Stable tag: 1.7.8
 License: MIT
 License URI: https://github.com/objectivehtml/FlipClock/blob/master/license.txt
  
@@ -13,9 +13,7 @@ Uses the FlipClock JS and WordPress shortcode to display on your site.
 == Description ==
  
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
- 
-
- 
+  
 == Installation ==
  
 This section describes how to install the plugin and get it working.
